@@ -1,0 +1,14 @@
+DECLARE
+    player_score NUMBER := 1200;
+    passing_score NUMBER := 1000;
+    special_score NUMBER := 1500;
+BEGIN
+    IF player_score >= special_score THEN
+        DBMS_OUTPUT.PUT_LINE('Congratulations! You have earned an extra-high score of ' || player_score || ' and won a special bonus prize!');
+    ELSIF player_score >= passing_score THEN
+        DBMS_OUTPUT.PUT_LINE('Congratulations! You have earned ' || player_score || ' points and won a prize!');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Sorry! You need at least ' || passing_score || ' points to win a prize. You scored ' || player_score || ' points.');
+    END IF;
+END;
+/
