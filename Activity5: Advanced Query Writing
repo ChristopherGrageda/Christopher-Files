@@ -1,0 +1,46 @@
+CREATE TABLE pets (
+    pet_id NUMBER PRIMARY KEY,
+    pet_name VARCHAR2(50),
+    pet_type VARCHAR2(50)
+);
+
+CREATE TABLE activities (
+    activity_id NUMBER PRIMARY KEY,
+    pet_id NUMBER,
+    activity_name VARCHAR2(50),
+    FOREIGN KEY (pet_id) REFERENCES pets(pet_id)
+);
+
+INSERT INTO pets (pet_id, pet_name, pet_type) 
+VALUES (1, 'Buddy', 'Dog');
+
+INSERT INTO pets (pet_id, pet_name, pet_type) 
+VALUES (2, 'Whiskers', 'Cat');
+
+INSERT INTO pets (pet_id, pet_name, pet_type) 
+VALUES (3, 'Fluffy', 'Rabbit');
+
+INSERT INTO pets (pet_id, pet_name, pet_type) 
+VALUES (4, 'Rex', 'Dog');
+
+INSERT INTO activities (activity_id, pet_id, activity_name) 
+VALUES (1, 1, 'Fetching');
+
+INSERT INTO activities (activity_id, pet_id, activity_name) 
+VALUES (2, 2, 'Climbing');
+
+INSERT INTO activities (activity_id, pet_id, activity_name) 
+VALUES (3, 3, 'Hopping');
+
+INSERT INTO activities (activity_id, pet_id, activity_name) 
+VALUES (4, 4, 'Fetching');
+
+INSERT INTO activities (activity_id, pet_id, activity_name) 
+VALUES (5, 2, 'Climbing');
+
+SELECT p1.pet_name AS pet_1, p2.pet_name AS pet_2, a.activity_name
+FROM pets p1
+JOIN activities a ON p1.pet_id = a.pet_id
+JOIN pets p2 ON a.pet_id = p2.pet_id
+WHERE p1.pet_id != p2.pet_id
+ORDER BY a.activity_name, p1.pet_name;
