@@ -1,0 +1,12 @@
+DECLARE
+    game_name VARCHAR2(100) := 'The Legend of Zelda: Breath of the Wild';
+    creator VARCHAR2(50) := 'Nintendo';
+    quantity NUMBER := 1;
+    genre VARCHAR2(30) := 'Action-Adventure';
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Game Name: ' || game_name);
+    DBMS_OUTPUT.PUT_LINE('Creator: ' || creator);
+    DBMS_OUTPUT.PUT_LINE('Quantity: ' || quantity);
+    DBMS_OUTPUT.PUT_LINE('Genre: ' || genre);
+END;
+/
