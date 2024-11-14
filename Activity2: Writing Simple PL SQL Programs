@@ -1,0 +1,13 @@
+DECLARE
+    total_goal NUMBER := 500;
+    monthly_savings NUMBER := 100;
+    months NUMBER := 5;
+    accumulated_savings NUMBER := 0;
+BEGIN
+    FOR i IN 1..months LOOP
+        accumulated_savings := accumulated_savings + monthly_savings;
+        DBMS_OUTPUT.PUT_LINE('Month ' || i || ' - Savings: $' || accumulated_savings);
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Total Savings after ' || months || ' months: $' || accumulated_savings);
+END;
+/
